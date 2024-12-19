@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: Petistaan
+  datasource:
+    url: jdbc:mysql://localhost:3306/petistaan
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        '[highlight_sql]': true
+  main:
+    allow-circular-references: true
+logging:
+  file:
+    name: logs/${spring.application.name}.log
+  logback:
+    rollingpolicy:
+      file-name-pattern: logs/${spring.application.name}-%d{yyyy-MM-dd}-%i.log
