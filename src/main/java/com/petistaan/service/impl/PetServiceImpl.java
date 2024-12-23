@@ -2,6 +2,7 @@ package com.petistaan.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -32,7 +33,8 @@ public class PetServiceImpl implements PetService {
 
 	private final PetMapper petMapper;
 
-	private final PetServiceImpl petService;
+	@Autowired
+	private PetServiceImpl petService;
 
 	@Transactional(propagation = Propagation.MANDATORY, readOnly = true)
 	public List<PetDTO> mapPetsToDTOs(List<Pet> pets, boolean loadOwners) {
